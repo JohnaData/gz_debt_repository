@@ -3,10 +3,15 @@ version: 2
 sources:
   - name: raw
     schema: gwz_raw_data
+    description: Raw Data GW
     tables:
       - name: sales 
         identifier: raw_gz_sales
+        description: greenweez raw data source of sales per date
       - name: product
         identifier: raw_gz_product
+        description: greenweez raw data source of sales per order id
       - name: ship 
         identifier: raw_gz_ship 
+        description: greenweez raw data source of shipping per ship_cost
+
