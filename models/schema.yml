@@ -8,10 +8,20 @@ sources:
       - name: sales 
         identifier: raw_gz_sales
         description: greenweez raw data source of sales per date
+        columns:
+          - name: date_date
+            description: the date of purchase
       - name: product
         identifier: raw_gz_product
         description: greenweez raw data source of sales per order id
+        columns:
+          - name: products_id
+            description: unique number for a product
       - name: ship 
         identifier: raw_gz_ship 
         description: greenweez raw data source of shipping per ship_cost
+        columns:
+          - name: orders_id
+            description: assigned number for orders
+
 
