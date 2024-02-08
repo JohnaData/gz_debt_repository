@@ -26,7 +26,7 @@ sources:
         identifier: raw_gz_product
         description: source of product
         columns:
-          - name: products_id
+          - name: pdt_id
             description: unique number for a product
             tests:
               - unique
