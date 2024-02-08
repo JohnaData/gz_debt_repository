@@ -7,17 +7,17 @@ sources:
     tables:
       - name: sales 
         identifier: raw_gz_sales
-        description: greenweez raw data source of sales per date
+        description: source sales per date
         columns:
           - name: date_date
             description: sales per date
+          - name: orders_id
+            description: sales per order id
+          - name: pdt_id
+            description: sales per product id
             tests:
               - unique
               - not_null
-          - name: orders_id
-            description: greenweez raw data source of sales per order id
-          - name: pdt_id
-            description: sales per product id
           - name: revenue
             description: sales per revenue
           - name: quantity
@@ -30,7 +30,7 @@ sources:
             description: unique number for a product
             tests:
               - unique
-              - not_null:
+              - not_null
           - name: purchase_price
             description: product per purchase price
       - name: ship 
@@ -39,9 +39,11 @@ sources:
         columns:
           - name: orders_id
             description: shipping per orders id
+            tests:
+              - unique
+              - not_null
           - name: shipping_fee
             description: shipping per shipping fee
-            
           - name: logcost
             description: greenweez raw data source of shipping per logcost
           - name: ship_cost
