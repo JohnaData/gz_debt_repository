@@ -11,17 +11,29 @@ sources:
         columns:
           - name: date_date
             description: the date of purchase
+            tests:
+              - unique:
+                  column: orders_id
+                  description: "Orders ID must be unique"
       - name: product
         identifier: raw_gz_product
         description: greenweez raw data source of sales per order id
         columns:
           - name: products_id
             description: unique number for a product
+            tests:
+              - unique:
+                  column: products_id
+                  description: "Products id must be unique"
       - name: ship 
         identifier: raw_gz_ship 
         description: greenweez raw data source of shipping per ship_cost
         columns:
           - name: orders_id
             description: assigned number for orders
+            tests:
+              - unique:
+                  column: orders_id
+                  description: "The primary key here is orders_id"
 
 
