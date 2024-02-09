@@ -15,18 +15,21 @@ sources:
             description: sales per order id
           - name: pdt_id
             description: sales per product id
-            tests:
-              - unique
-              - not_null
           - name: revenue
             description: sales per revenue
           - name: quantity
             description: sales per quantity
+        tests:
+          - unique:
+              column_name: "(orders_id || '-' || pdt_id)"
+        freshness:
+          warn_after: { count: 90, period: day }
+        loaded_at_field: "CAST(date_date as TIMESTAMP)"
       - name: product
         identifier: raw_gz_product
         description: source of product
         columns:
-          - name: pdt_id
+          - name: products_id
             description: unique number for a product
             tests:
               - unique
